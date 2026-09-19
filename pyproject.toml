@@ -1,20 +1,29 @@
 [project]
 name = "network-scanner-and-analyzer"
 version = "0.1.0"
-description = "Add your description here"
+description = "Packet capture, rule-based analysis, and batched PostgreSQL storage"
 readme = "README.md"
 authors = [
     { name = "xtb20", email = "106568648+xtb20@users.noreply.github.com" }
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.11"
 dependencies = [
-    "psycopg2>=2.9.12",
+    "psycopg2-binary>=2.9.12",
     "scapy>=2.7.0",
+    "PyYAML>=6.0.2",
 ]
 
 [project.scripts]
-network-scanner-and-analyzer = "network_scanner_and_analyzer:main"
+network-scanner-and-analyzer = "src.network_scanner_and_analyzer:main"
 
 [build-system]
-requires = ["uv_build>=0.12.11,<0.13.0"]
-build-backend = "uv_build"
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "config*", "db*"]
+
+[tool.setuptools.package-data]
+config = ["rules.yaml"]
+db = ["schema.sql"]

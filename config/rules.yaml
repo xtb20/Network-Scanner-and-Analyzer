@@ -1,0 +1,10 @@
+# Examples, not proof of malicious activity. Payload matching is per packet.
+flagged_ports: [23, 2323, 3389]
+signatures:
+  - name: example-test-marker
+    text: PACKET_INSPECTOR_TEST
+    case_sensitive: true
+port_scan:
+  window_seconds: 10
+  unique_ports: 20
+  max_sources: 10000
