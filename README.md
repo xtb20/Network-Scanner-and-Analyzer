@@ -6,7 +6,7 @@ records. It observes traffic; it does not probe hosts or perform active scans.
 
 ## Architecture
 
-'''text
+'''powershell
 Live Scapy capture -- nonblocking enqueue --+
                                             +-- bounded queue -- detector -- batch writer
 Offline PCAP reader -- blocking enqueue ----+                                 |
