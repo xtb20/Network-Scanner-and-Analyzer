@@ -6,12 +6,11 @@ records. It observes traffic; it does not probe hosts or perform active scans.
 
 ## Architecture
 
-```text
+
 Live Scapy capture -- nonblocking enqueue --+
-                                          +-- bounded queue -- detector -- batch writer
-Offline PCAP reader -- blocking enqueue ---+                                 |
-                                                                 JSONL or PostgreSQL
-```
+                                            +-- bounded queue -- detector -- batch writer
+Offline PCAP reader -- blocking enqueue ----+                                 |
+                                                                    JSONL or PostgreSQL
 
 - `src/capture.py`: IPv4/IPv6 metadata, TCP/UDP payload extraction, bounded capture queue.
 - `src/models.py`: shared records, UTC timestamps, and hex JSON payloads.
