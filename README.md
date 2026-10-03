@@ -2,7 +2,7 @@
 
 A passive packet inspector built with Scapy. Capture live traffic or replay a
 PCAP/PCAPNG file, detect suspicious patterns, and write JSON lines or PostgreSQL
-records. It observes traffic; it does not probe hosts or perform active scans.
+records.
 
 ## Architecture
 
